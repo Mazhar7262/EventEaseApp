@@ -1,0 +1,17 @@
+@page "/events/register/{EventName}"
+
+<h3>Register for @EventName</h3>
+
+<p>Fill out the form below to register for this event.</p>
+
+<!-- Registration form placeholder -->
+<input placeholder="Your Name" />
+<input placeholder="Email" />
+<button>Submit</button>
+
+<NavLink href="/events">Back to Events</NavLink>
+
+@code {
+    [Parameter]
+    public string EventName { get; set; }
+}
