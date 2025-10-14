@@ -13,59 +13,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = EventEaseApp
 build_property.RootNamespace = EventEaseApp
-build_property.ProjectDir = C:\Users\a929875\GroovEcoBlazor\EventEaseApp\
+build_property.ProjectDir = /Users/mazharshaik/MyBlazor/EventEaseApp/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\a929875\GroovEcoBlazor\EventEaseApp
+build_property.MSBuildProjectDirectory = /Users/mazharshaik/MyBlazor/EventEaseApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/App.razor]
+[/Users/mazharshaik/MyBlazor/EventEaseApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Components/EventCard.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFdmVudENhcmQucmF6b3I=
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Components/EventCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9FdmVudENhcmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Pages/EventDetails.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZlbnREZXRhaWxzLnJhem9y
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Pages/EventDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXZlbnREZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Pages/EventList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZlbnRMaXN0LnJhem9y
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Pages/EventList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXZlbnRMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Pages/EventRegistration.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZlbnRSZWdpc3RyYXRpb24ucmF6b3I=
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Pages/EventRegistration.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXZlbnRSZWdpc3RyYXRpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Pages/Events.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZlbnRzLnJhem9y
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Pages/Events.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXZlbnRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/_Imports.razor]
+[/Users/mazharshaik/MyBlazor/EventEaseApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-uuqduv80zi
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-2f8u2xc82h
 
-[C:/Users/a929875/GroovEcoBlazor/EventEaseApp/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-pq9xlegf1q
+[/Users/mazharshaik/MyBlazor/EventEaseApp/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-lgqihia8n6
