@@ -1,17 +1,37 @@
 @page "/events/register/{EventName}"
+@using System.ComponentModel.DataAnnotations
 
 <h3>Register for @EventName</h3>
 
-<p>Fill out the form below to register for this event.</p>
+<EditForm Model="@registrationModel" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
 
-<!-- Registration form placeholder -->
-<input placeholder="Your Name" />
-<input placeholder="Email" />
-<button>Submit</button>
+    <InputText @bind-Value="registrationModel.Name" placeholder="Your Name" />
+    <InputText @bind-Value="registrationModel.Email" placeholder="Email" />
+    <button type="submit">Submit</button>
+</EditForm>
 
 <NavLink href="/events">Back to Events</NavLink>
 
 @code {
     [Parameter]
     public string EventName { get; set; }
+
+    private RegistrationModel registrationModel = new();
+
+    private void HandleValidSubmit()
+    {
+        // Handle registration logic here
+    }
+
+    public class RegistrationModel
+    {
+        [Required(ErrorMessage = "Name is required")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email format")]
+        public string Email { get; set; }
+    }
 }

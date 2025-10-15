@@ -1,15 +1,41 @@
 @page "/events/details/{EventName}"
 @using EventEaseApp.Models
+@inject NavigationManager NavigationManager
 
 <h3>Event Details</h3>
 
-<p><strong>Name:</strong> @EventName</p>
-<p><strong>Date:</strong> TBD</p>
-<p><strong>Location:</strong> TBD</p>
-
-<NavLink href="@($"/events/register/{EventName}")">Register for this event</NavLink>
+@if (eventModel == null)
+{
+    <p>Event not found. <NavLink href="/events">Back to Events</NavLink></p>
+}
+else
+{
+    <p><strong>Name:</strong> @eventModel.EventName</p>
+    <p><strong>Date:</strong> @eventModel.EventDate.ToShortDateString()</p>
+    <p><strong>Location:</strong> @eventModel.Location</p>
+    <NavLink href="@($"/events/register/{EventName}")">Register for this event</NavLink>
+}
 
 @code {
     [Parameter]
     public string EventName { get; set; }
+
+    private EventModel eventModel;
+
+    protected override void OnInitialized()
+    {
+        eventModel = GetEventByName(EventName);
+    }
+
+    private EventModel GetEventByName(string name)
+    {
+        var events = new List<EventModel>
+        {
+            new EventModel { EventName = "Tech Conference 2025", EventDate = new DateTime(2025, 11, 5), Location = "London, UK" },
+            new EventModel { EventName = "Startup Meetup", EventDate = new DateTime(2025, 12, 12), Location = "Manchester, UK" },
+            new EventModel { EventName = "AI Expo", EventDate = new DateTime(2026, 1, 20), Location = "Birmingham, UK" }
+        };
+
+        return events.FirstOrDefault(e => e.EventName == Uri.UnescapeDataString(name));
+    }
 }

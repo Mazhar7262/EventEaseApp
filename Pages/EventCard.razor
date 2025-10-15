@@ -8,9 +8,10 @@
     <div class="event-summary">
         <strong>@ev.EventName</strong> — @ev.EventDate.ToShortDateString() (@ev.Location)
         <br />
-        <NavLink href="@($"/events/details/{ev.EventName}")">View Details</NavLink>
-        |
-        <NavLink href="@($"/events/register/{ev.EventName}")">Register</NavLink>
+        <NavLink href="@($"/events/details/{Uri.EscapeDataString(ev.EventName)}")">View Details</NavLink>
+
+        <NavLink href="@($"/events/register/{Uri.EscapeDataString(ev.EventName)}")">Register</NavLink>
+
     </div>
 }
 
