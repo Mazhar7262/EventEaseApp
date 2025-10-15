@@ -1,19 +1,27 @@
 @page "/events"
 @using EventEaseApp.Models
 
-<h3>Upcoming Events</h3>
-
-@foreach (var ev in events)
-{
-    <div class="event-summary">
-        <strong>@ev.EventName</strong> — @ev.EventDate.ToShortDateString() (@ev.Location)
-        <br />
-        <NavLink href="@($"/events/details/{Uri.EscapeDataString(ev.EventName)}")">View Details</NavLink>
-
-        <NavLink href="@($"/events/register/{Uri.EscapeDataString(ev.EventName)}")">Register</NavLink>
-
+<div class="container mt-5">
+    <h3 class="text-primary mb-4">Upcoming Events</h3>
+    <div class="row">
+        @foreach (var ev in events)
+        {
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@ev.EventName</h5>
+                        <p class="card-text">
+                            <strong>Date:</strong> @ev.EventDate.ToShortDateString()<br />
+                            <strong>Location:</strong> @ev.Location
+                        </p>
+                        <NavLink class="btn btn-outline-primary me-2" href="@($"/events/details/{Uri.EscapeDataString(ev.EventName)}")">View Details</NavLink>
+                        <NavLink class="btn btn-primary" href="@($"/events/register/{Uri.EscapeDataString(ev.EventName)}")">Register</NavLink>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
-}
+</div>
 
 @code {
     private List<EventModel> events = new()

@@ -1,41 +1,84 @@
 @page "/events/details/{EventName}"
 @using EventEaseApp.Models
-@inject NavigationManager NavigationManager
+@using System.Text.Encodings.Web
+@inject AttendanceService attendanceService
+@inject EventService eventService
 
-<h3>Event Details</h3>
+<div class="container mt-5">
+    @if (eventModel == null)
+    {
+        <div class="alert alert-warning">
+            <p>Event not found.</p>
+            <NavLink class="btn btn-outline-secondary" href="/events">← Back to Events</NavLink>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+        <div class="card-body">
+            <h3 class="card-title text-primary">@eventModel.EventName</h3>
+            <p class="card-text">
+                <strong>Date:</strong> @eventModel.EventDate.ToShortDateString()<br />
+                <strong>Location:</strong> @eventModel.Location
+            </p>
 
-@if (eventModel == null)
-{
-    <p>Event not found. <NavLink href="/events">Back to Events</NavLink></p>
-}
-else
-{
-    <p><strong>Name:</strong> @eventModel.EventName</p>
-    <p><strong>Date:</strong> @eventModel.EventDate.ToShortDateString()</p>
-    <p><strong>Location:</strong> @eventModel.Location</p>
-    <NavLink href="@($"/events/register/{EventName}")">Register for this event</NavLink>
-}
+            <NavLink class="btn btn-success" href="@($"/events/register/{EventName}")">Register for this event</NavLink>
+            <NavLink class="btn btn-outline-secondary ms-2" href="/events">← Back to Events</NavLink>
+
+            <hr class="my-4" />
+
+            <button class="btn btn-info mb-2"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#attendeeList"
+                    aria-controls="attendeeList"
+                    aria-expanded="false">
+                Show Registered Attendees (@attendeeCount)
+            </button>
+
+
+            <div class="collapse" id="attendeeList">
+                @if (attendees.Any())
+                {
+                    <ul class="list-group">
+                        @foreach (var email in attendees)
+                        {
+                            <li class="list-group-item">@HtmlEncoder.Default.Encode(email)</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p class="text-muted">No attendees registered yet.</p>
+                }
+            </div>
+        </div>
+    </div>
+    }
+</div>
 
 @code {
     [Parameter]
     public string EventName { get; set; }
 
     private EventModel eventModel;
+    private int attendeeCount = 0;
+    private List<string> attendees = new List<string>();
 
-    protected override void OnInitialized()
+    protected override async Task OnParametersSetAsync()
     {
-        eventModel = GetEventByName(EventName);
-    }
-
-    private EventModel GetEventByName(string name)
-    {
-        var events = new List<EventModel>
+        await Task.Yield(); // lightweight async placeholder
+        var foundEvent = eventService.GetEvents().FirstOrDefault(e => e.EventName == Uri.UnescapeDataString(EventName));
+        if (foundEvent != null)
         {
-            new EventModel { EventName = "Tech Conference 2025", EventDate = new DateTime(2025, 11, 5), Location = "London, UK" },
-            new EventModel { EventName = "Startup Meetup", EventDate = new DateTime(2025, 12, 12), Location = "Manchester, UK" },
-            new EventModel { EventName = "AI Expo", EventDate = new DateTime(2026, 1, 20), Location = "Birmingham, UK" }
-        };
-
-        return events.FirstOrDefault(e => e.EventName == Uri.UnescapeDataString(name));
+            eventModel = foundEvent;
+            attendees = attendanceService.GetAttendees(eventModel.EventName);
+            attendeeCount = attendees.Count;
+        }
+        else
+        {
+            eventModel = null;
+            attendees = new List<string>();
+            attendeeCount = 0;
+        }
     }
 }
